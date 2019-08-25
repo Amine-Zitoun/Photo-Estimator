@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<style type="text/css">
+	
+	input[type=text]{
+	font-size: 18px;
+	font-family: 'Jua', sans-serif;
+	padding: 5px 8px;
+	margin-bottom: 40px;
+	width: 350px;
+}
+	
+	.boi{
+		text-align: center;
+	}
+	.Predict{
+		font-size: 20px;
+	background-color: red;
+	border-radius: 20px;
+
+
+	}
+	.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+     padding: 4px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+    padding: 4px;
+    border-radius: 20px;
+
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+
+
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Photo Estimator</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    
+  </div>
+
+  
+</nav>
+<br><br><br>
+<div class="boi">
+	{%with messages = get_flashed_messages()%}
+		{% if messages%}
+			
+			{% for message in messages %}
+				<div class="alert alert-success" role="alert">
+					{{message}}
+				</div>
+			{%endfor%}
+			
+		{%endif%}
+			
+
+	{%endwith%}
+	<form action="{{url_for('download')}}" method="POST">
+		<h2>Welcome</h2><br><h2>{{message}}</h2><br>
+		<input value="{{message}}" type="hidden" name="username"><br>
+		
+
+	<input type="submit" value="Next" class="btn btn-primary btn-lg" >
+	<form>	
+	
+</div>
+</body>
+</html>
+
+
+
