@@ -23,7 +23,7 @@ training_data = []
 likes = []
 
 
-instaApi = InstagramAPI('amine_zitoun', 'zitoun123456')
+instaApi = InstagramAPI(USERNAME, PASSWORD)
 instaApi.login()
 
 def get_userID(username):
